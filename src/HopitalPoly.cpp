@@ -129,7 +129,7 @@ HopitalPoly& HopitalPoly::operator-=(const shared_ptr<Infirmier>& infirmier)
 
 bool HopitalPoly::operator==(const HopitalPoly& rhs) const
 {
-	return (nom_ == rhs.nom_);
+	return (nom_ == rhs.getNom());
 }
 
 ostream& operator<<(ostream& o, const HopitalPoly& c)

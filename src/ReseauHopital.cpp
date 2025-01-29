@@ -25,7 +25,7 @@ ostream& ReseauHopital::afficher(ostream & out) const
 bool ReseauHopital::chercherHopital(const HopitalPoly* hopital) const
 {
 	for(auto &h : tableauHopitaux_){
-		if(h->getNom() == hopital->getNom())
+		if(*h.get() == *hopital)
 		return true;
 	}
 	return false;
