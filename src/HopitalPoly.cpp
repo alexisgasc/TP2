@@ -3,8 +3,6 @@
  * Date: 10 janvier 2017
  * Auteur: 
  *********************************************/
- 
-//test branch 2 Alexis
 
 #include "Medecin.h"
 #include "Infirmier.h"

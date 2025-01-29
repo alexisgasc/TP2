@@ -89,9 +89,14 @@ ostream& operator<<(ostream &out, const Infirmier& b) {
 }
 
 Infirmier Infirmier::operator+(const string & nbChambre) const {
-    Infirmier temp = *this; 
-    temp.listChambres_.push_back(nbChambre);
-    return temp;
+    for (auto c : this->listChambres_) {
+        if (c == nbChambre){
+            return *this;
+        }
+    } 
+    Infirmier inf = *this; 
+    inf.listChambres_.push_back(nbChambre);
+    return inf;
 }
 
 Infirmier Infirmier::operator-(const string & nbChambre) const {
