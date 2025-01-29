@@ -4,6 +4,8 @@
  * Auteur: 
  *********************************************/
  
+//test merge Alexis
+
 #include "Medecin.h"
 #include "Infirmier.h"
 #include "HopitalPoly.h"
