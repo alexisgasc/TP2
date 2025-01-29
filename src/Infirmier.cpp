@@ -85,7 +85,7 @@ ostream &Infirmier::afficher(ostream &out) const
 }
 
 ostream& operator<<(ostream &out, const Infirmier& b) {
-    return b.afficher(out);;
+    return b.afficher(out);
 }
 
 Infirmier Infirmier::operator+(const string & nbChambre) const {
@@ -120,8 +120,8 @@ bool Infirmier::operator==(const Infirmier& rhs) const {
 
 
 // Constructeur de copie
-Infirmier::Infirmier(const Infirmier &a) : 
-    nom_(a.nom_) , prenom_(a.prenom_) , tauxHoraire_(a.tauxHoraire_) , listChambres_(a.listChambres_) , heuresTravaillees_(a.heuresTravaillees_) {}
+Infirmier::Infirmier(const Infirmier &a) : nom_(a.nom_) , prenom_(a.prenom_) , 
+tauxHoraire_(a.tauxHoraire_) , listChambres_(a.listChambres_) , heuresTravaillees_(a.heuresTravaillees_) {}
 
 
  

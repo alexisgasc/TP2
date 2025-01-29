@@ -1,6 +1,6 @@
 /********************************************
  * Titre: Travail pratique #1 - Medecin.cpp
- * Date: 25 aout 2012
+ * Date:
  * Auteur: 
  *******************************************/
 
@@ -59,8 +59,8 @@ bool Medecin::operator==(const Medecin& rhs) const
 	return (nom_ == rhs.nom_ && salaire_ == rhs.salaire_ && specialite_ == rhs.specialite_);
 }
 
-Medecin::Medecin(const Medecin& a) :
- nom_(a.nom_), salaire_(a.salaire_), specialite_(a.specialite_) {}
+Medecin::Medecin(const Medecin& a) : nom_(a.nom_), salaire_(a.salaire_), 
+	specialite_(a.specialite_) {}
 
 ostream& operator<<(ostream& out, const Medecin& b)
 {

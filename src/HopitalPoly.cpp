@@ -60,8 +60,8 @@ ostream &HopitalPoly::afficher(ostream &out) const{
 	return out;
 }
 
-HopitalPoly::HopitalPoly(const HopitalPoly& h) : 
-nom_(h.nom_), tableauInfirmiers_(h.tableauInfirmiers_), tableauMedecins_(h.tableauMedecins_){}
+HopitalPoly::HopitalPoly(const HopitalPoly& h) : nom_(h.nom_), tableauInfirmiers_(h.tableauInfirmiers_), 
+	tableauMedecins_(h.tableauMedecins_){}
 
 HopitalPoly& HopitalPoly::operator+=(const shared_ptr<Medecin>& medecin)
 {
@@ -129,7 +129,7 @@ HopitalPoly& HopitalPoly::operator-=(const shared_ptr<Infirmier>& infirmier)
 
 bool HopitalPoly::operator==(const HopitalPoly& rhs) const
 {
-	return (nom_ == rhs.nom_ && tableauInfirmiers_ == rhs.tableauInfirmiers_ && tableauMedecins_ == rhs.tableauMedecins_);;
+	return (nom_ == rhs.nom_ && tableauInfirmiers_ == rhs.tableauInfirmiers_ && tableauMedecins_ == rhs.tableauMedecins_);
 }
 
 ostream& operator<<(ostream& o, const HopitalPoly& c)
