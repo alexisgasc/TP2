@@ -25,7 +25,7 @@ ostream& ReseauHopital::afficher(ostream & out) const
 bool ReseauHopital::chercherHopital(const HopitalPoly* hopital) const
 {
 	for(auto &h : tableauHopitaux_){
-		if(h.get() == hopital)
+		if(h->getNom() == hopital->getNom())
 		return true;
 	}
 	return false;
@@ -34,7 +34,7 @@ bool ReseauHopital::chercherHopital(const HopitalPoly* hopital) const
 ReseauHopital& ReseauHopital::operator+=(unique_ptr<HopitalPoly>& hopital)
 {
 	if (!chercherHopital(hopital.get())) {
-		tableauHopitaux_.push_back(std::move(hopital));
+		tableauHopitaux_.push_back(make_unique<HopitalPoly>(*hopital));
 	}
 	return *this;
 }
