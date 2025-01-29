@@ -4,7 +4,7 @@
  * Auteur: 
  *********************************************/
  
-//test merge Alexis
+//test branch Alexis
 
 #include "Medecin.h"
 #include "Infirmier.h"
