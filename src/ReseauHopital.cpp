@@ -16,19 +16,17 @@ size_t  ReseauHopital::getNumbHospitals()
 
 ostream& ReseauHopital::afficher(ostream & out) const
 {
-	//"Nom du reseau d'hopital: Reseau Sante Quebec\n"
-	out << "Nom du reseau d'hopital: " << this->getNom();
-	for (const auto& hopital : tableauHopitaux_) {
-		cout << hopital;
-	}
+	out << "Nom du reseau d'hopital: " << this->getNom() << '\n';
+	for (auto &h : tableauHopitaux_) 
+		h->afficher(out);
 	return out;
 }
 
 bool ReseauHopital::chercherHopital(const HopitalPoly* hopital) const
 {
-	for (int i = 0; i < tableauHopitaux_.size(); i++) {
-		if (tableauHopitaux_[i].get() == hopital)
-			return true;
+	for(auto &h : tableauHopitaux_){
+		if(h.get() == hopital)
+		return true;
 	}
 	return false;
 }
