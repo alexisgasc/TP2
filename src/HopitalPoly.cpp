@@ -81,10 +81,10 @@ HopitalPoly& HopitalPoly::operator+=(const shared_ptr<Infirmier>& infirmier)
 
 HopitalPoly& HopitalPoly::operator+=(const HopitalPoly& hopital)
 {
-	for (auto inf : hopital.tableauInfirmiers_) {
+	for (auto &inf : hopital.tableauInfirmiers_) {
 		*this += inf;
 	}
-	for (auto med : hopital.tableauMedecins_) {
+	for (auto &med : hopital.tableauMedecins_) {
 		*this += med;
 	}
 	return *this;
@@ -93,7 +93,7 @@ HopitalPoly& HopitalPoly::operator+=(const HopitalPoly& hopital)
 HopitalPoly& HopitalPoly::operator-=(const shared_ptr<Medecin>& medecin)
 {
 	if (chercherMedecin(medecin)) {
-		for (auto med : this->tableauMedecins_) {
+		for (auto &med : tableauMedecins_) {
 			if (medecin == med) {
 				med = tableauMedecins_.back();
 				tableauMedecins_.pop_back();
@@ -117,10 +117,10 @@ HopitalPoly& HopitalPoly::operator-=(string& medecin)
 HopitalPoly& HopitalPoly::operator-=(const shared_ptr<Infirmier>& infirmier)
 {
 	if (this->chercherInfirmier(infirmier)) {
-		for (auto inf : this->tableauInfirmiers_) {
+		for (auto &inf : tableauInfirmiers_) {
 			if (inf == infirmier) {
-				inf = this->tableauInfirmiers_.back();
-				this->tableauInfirmiers_.pop_back();
+				inf = tableauInfirmiers_.back();
+				tableauInfirmiers_.pop_back();
 			}
 		}
 	}
@@ -129,7 +129,7 @@ HopitalPoly& HopitalPoly::operator-=(const shared_ptr<Infirmier>& infirmier)
 
 bool HopitalPoly::operator==(const HopitalPoly& rhs) const
 {
-	return (nom_ == rhs.nom_ && tableauInfirmiers_ == rhs.tableauInfirmiers_ && tableauMedecins_ == rhs.tableauMedecins_);
+	return (nom_ == rhs.nom_);
 }
 
 ostream& operator<<(ostream& o, const HopitalPoly& c)
