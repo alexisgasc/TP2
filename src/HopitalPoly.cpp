@@ -105,7 +105,7 @@ HopitalPoly& HopitalPoly::operator-=(const shared_ptr<Medecin>& medecin)
 
 HopitalPoly& HopitalPoly::operator-=(string& medecin)
 {
-	for (int i = 0; i < tableauMedecins_.size(); i++) {
+	for (int i = 0; i < int(tableauMedecins_.size()); i++) {
 		if (tableauMedecins_[i]->getNom() == medecin) {
 			tableauMedecins_[i] = tableauMedecins_.back();
 			tableauMedecins_.pop_back();

@@ -102,7 +102,7 @@ Infirmier Infirmier::operator+(const string & nbChambre) const {
 Infirmier Infirmier::operator-(const string & nbChambre) const {
     Infirmier temp = *this;
     if (chercherChambre(nbChambre)){
-        for (int i = 0; i < temp.listChambres_.size() ; i++) {
+        for (int i = 0; i < int(temp.listChambres_.size()) ; i++) {
                 if (temp.listChambres_[i] == nbChambre) {
                     temp.listChambres_[i] = temp.listChambres_.back();
                     temp.listChambres_.pop_back();

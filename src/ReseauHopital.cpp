@@ -41,9 +41,9 @@ ReseauHopital& ReseauHopital::operator+=(unique_ptr<HopitalPoly>& hopital)
 
 ReseauHopital& ReseauHopital::operator-=(string& nomHopital)
 {
-	for (int i = 0; i < tableauHopitaux_.size(); i++) {
+	for (int i = 0; i < int(tableauHopitaux_.size()); i++) {
 		if (tableauHopitaux_[i]->getNom() == nomHopital) {
-			tableauHopitaux_[i] = move(tableauHopitaux_.back());
+			tableauHopitaux_[i] = std::move(tableauHopitaux_.back());
 			tableauHopitaux_.pop_back();
 		}
 	}

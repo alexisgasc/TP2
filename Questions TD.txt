@@ -1,7 +1,6 @@
 Faut il remplir les entetes (auteurs, date)?
 Comment avoir les meme warnings que toi? (TP1)??
 
-
 A faire:
 - finir de relire code Noe
 - enlever les warnings
