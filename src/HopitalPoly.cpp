@@ -9,10 +9,6 @@
 #include "HopitalPoly.h"
 #include <iostream>
 
-//mod random
-//autres]
-//blabla
-
 HopitalPoly::HopitalPoly(const string & nom):nom_(nom) {
 }
 string  HopitalPoly::getNom() const
