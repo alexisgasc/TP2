@@ -10,6 +10,8 @@
 #include <iostream>
 
 //mod random
+//autres]
+//blabla
 
 HopitalPoly::HopitalPoly(const string & nom):nom_(nom) {
 }
