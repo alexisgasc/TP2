@@ -1,0 +1,16 @@
+Tools and commands for the terminal:
+
+//Pour compiler:                g++ -std=c++20 main.cpp -o main
+- Note: preciser -std=c++20 pour c++20
+
+
+
+
+//Pour compiler plusieurs fichiers:             g++ -std=c++20 main.cpp CodeFourni.cpp CodeDemande.cpp -o main
+
+
+
+//Pour se deplacer dans les repertoires
+//Pour sortire au repertoir de base:            cd 
+//Pour aller dans un repertoire:                cd /Users/alexisgasc/Documents/VScode/TD5
+ - Note: on peut appuyer TAB a tout moment pour voir les fichiers et dossiers dans ton repertoire ou pour remplir le texte
