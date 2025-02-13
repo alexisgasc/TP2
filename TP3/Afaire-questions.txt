@@ -1,3 +1,4 @@
-Enlever les TODOS
+Enlever les TODO
 
 nTypesSoin dans infirmier constructeur par copie??
+getAge() pour patient??

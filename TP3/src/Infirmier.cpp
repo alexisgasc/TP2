@@ -82,6 +82,9 @@ float  Infirmier::calculerSalaire() const {
 // - mettre à jour nTypeSoin NB: il ne devra jamais depasser 3. Il prend uniquemnt les valeurs 0 1 et 2.
 void Infirmier::examinerPatient(shared_ptr<Patient>& p) {
     this->ajouterHeuresTravaillees(5U);
+    *this += p->getSalle();
+    this->patient_ = p;
+    
     
 }
 
