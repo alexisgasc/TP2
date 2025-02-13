@@ -4,8 +4,7 @@
 // - Initialiser le nom du cardiologue en utilisant le constructeur de la classe parente (Medecin).
 // - Initialiser la spécialité avec "Cardiologie" et le niveau passé en paramètre.
 // - Initialiser les attributs nbPatients_, nbConferences_, et nbPublications_ avec les valeurs passées en paramètres.
-Cardiologue::Cardiologue(const string& nom, unsigned nbPatients, unsigned nbConsultations, unsigned int niveau)
-    :  {}
+Cardiologue::Cardiologue(const string& nom, unsigned nbPatients, unsigned nbConsultations, unsigned int niveau) : {}
 
 // TODO: Implémenter la méthode getNbPatients.
 // - Retourner le nombre de patients traités par le cardiologue.
