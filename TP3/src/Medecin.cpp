@@ -40,5 +40,7 @@ ostream &Medecin::afficher(ostream &out) const
 // TODO: Surcharger l'opérateur == pour comparer deux médecins.
 // - Comparer les noms, les domaines et les niveaux des spécialités des médecins.
 bool Medecin::operator==(const Medecin &rhs) const{
-    
+    return (nom_ == rhs.getNom() 
+    && specialite_->getDomaine() == rhs.specialite_->getDomaine()
+    && specialite_->getNiveau() == rhs.specialite_->getNiveau());
 }
