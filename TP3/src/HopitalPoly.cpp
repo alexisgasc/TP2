@@ -130,15 +130,21 @@ bool HopitalPoly::chercherEmploye(const string& nomEmploye) const {
 // TODO: Implémenter la méthode afficherEmploye.
 // - Afficher les informations de tous les employés de l'hôpital.
 void HopitalPoly::afficherEmploye(ostream &out) const {
+    out << "Employés: \n";
+    for(size_t i = 0; i < employes_.size(); i++) {
+        employes_[i]->afficher(out);
+    }
 }
 
 // TODO: Implémenter la méthode afficher.
 // - Afficher les informations de l'hôpital, y compris la liste des employés.
 ostream& HopitalPoly::afficher(ostream &out) const {
+    out << "Hôpital: \n" << nom_ << endl;
+    afficherEmploye(out);
     return out;
 }
 
 // TODO: Surcharger l'opérateur << pour afficher les informations de l'hôpital.
 ostream &operator<<(ostream &o, const HopitalPoly &h) {
-    return o;
+    return h.afficher(o);
 }

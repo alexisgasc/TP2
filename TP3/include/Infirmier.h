@@ -32,7 +32,7 @@ public:
 	float  calculerSalaire() const override;
 	void examinerPatient(shared_ptr<Patient>& p);
 	void setPatient(const shared_ptr<Patient>& p);
-	ostream& afficher(ostream &out) const;
+	ostream& afficher(ostream &out) const override;
 	void operator+=(int numeroSalle);
 	bool operator==(const Infirmier &rhs) const;
 
