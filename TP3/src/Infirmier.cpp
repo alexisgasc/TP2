@@ -3,30 +3,25 @@
 
 int Infirmier::nTypeSoin_ = 0;
 
-// TODO: Implémenter le constructeur de Infirmier.
-// - Initialiser le nom, le prénom et le taux horaire de l'infirmier.
-// - Initialiser heuresTravaillees_ à 0.
-Infirmier::Infirmier(const string & nom, const std::string & prenom, const float & tauxHoraire) : 
-    Employe(nom), prenom_(prenom), tauxHoraire_(tauxHoraire) 
-{
-    heuresTravaillees_ = 0U;
-}
+Infirmier::Infirmier(const string & nom, 
+                    const std::string & prenom, 
+					const float & tauxHoraire): prenom_(prenom), tauxHoraire_(tauxHoraire) 
+    {
+    setNom(nom);
+    heuresTravaillees_ = 0;
+    }
 
-// TODO: Implémenter le constructeur de copie de Infirmier.
-// - Copier tous les attributs de l'infirmier passé en paramètre.
-Infirmier::Infirmier(const Infirmier &a): 
-    prenom_(a.getPrenom()), tauxHoraire_(a.getTauxHoraire()), Employe(a.getNom()), 
-    heuresTravaillees_(a.getHeuresTravaillees()), patient_(a.getPatient())          // et pour nTypeSoin ??
+Infirmier::Infirmier(const Infirmier& a) :
+    prenom_(a.prenom_), tauxHoraire_(a.tauxHoraire_), heuresTravaillees_(a.heuresTravaillees_),
+    patient_(a.patient_), listeChambre_(a.listeChambre_)
 {
-    for (auto &l : a.getListeChambre()) this->listeChambre_.push_back(l);
+setNom(a.nom_);
 }
-
 
 string Infirmier::getPrenom() const
 {
     return prenom_;
 }
-
 
 vector<string> Infirmier::getListeChambre() const{
     return listeChambre_;
@@ -58,11 +53,8 @@ unsigned Infirmier::getHeuresTravaillees() const{
     return heuresTravaillees_;
 }
 
-// TODO: Surcharger l'opérateur += pour ajouter une chambre à la liste des chambres.
-// - Ajouter le numéro de la chambre à la liste des chambres.
-// -utiliser la fonction to_string pour la conversion
 void Infirmier::operator+=(int numeroSalle){
-    this->listeChambre_.push_back(to_string(numeroSalle));
+    listeChambre_.push_back(to_string(numeroSalle));
 }
 
 void Infirmier::ajouterHeuresTravaillees(unsigned heures){
@@ -74,18 +66,16 @@ float  Infirmier::calculerSalaire() const {
 	return  salaire;
 }
 
-// TODO: Implémenter la méthode examinerPatient.
-// - Ajouter 5 heures travaillées à l'infirmier.
-// - Ajouter la chambre du patient aux chambres de l'infirmiere
 // - Assigner le patient à l'infirmier. indice: utilise static_cast et nTypeSoin
 // - Mettre à jour le type de soins du patient. 
 // - mettre à jour nTypeSoin NB: il ne devra jamais depasser 3. Il prend uniquemnt les valeurs 0 1 et 2.
 void Infirmier::examinerPatient(shared_ptr<Patient>& p) {
-    this->ajouterHeuresTravaillees(5U);
+    ajouterHeuresTravaillees(5);
     *this += p->getSalle();
-    this->patient_ = p;
-    
-    
+    patient_ = p;
+    p->misAjourTypeSoin(static_cast<TypeSoins>(nTypeSoin_));
+    nTypeSoin_= (nTypeSoin_ + 1) % 3;
+
 }
 
 ostream &Infirmier::afficher(ostream &out) const

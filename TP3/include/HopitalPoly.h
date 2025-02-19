@@ -47,7 +47,13 @@ public:
     // - Si aucun employé disponible n'est trouvé, retourner nullptr.
 	template<typename T>
 	shared_ptr<T> trouverEmployeLibre() {
-		return nullptr;
+		for (size_t i = 0; i < employes_.size(); i++) {
+			auto employeCast = dynamic_pointer_cast<T>(employes_[i]);
+			if (employeCast and employeCast->getPatient() == nullptr) {
+				return employeCast;
+			}
+		}
+	return nullptr;
 	}
 
 	float coutSalarialTotal() const;

@@ -1,14 +1,8 @@
 #include "Patient.h"
 
-// TODO: Implémenter le constructeur de Patient.
-// - Initialiser le nom et l'âge du patient.
-// - Initialiser typeSoins_ à PAS_BESOIN.
-// - Initialiser infirmier_ et medecin_ à nullptr.
-Patient::Patient(std::string nom, int age) : nom_(nom), age_(age) {
-    this->typeSoins_ = TypeSoins::PAS_BESOIN;
-    this->infirmier_ = nullptr;
-    this->medecin_ = nullptr;
-}
+Patient::Patient(std::string nom, int age) :
+    nom_(nom), age_(age), typeSoins_(TypeSoins::PAS_BESOIN), infirmier_(nullptr), medecin_(nullptr) {}
+
 
 void Patient::setNom(const string& nom) {
     nom_ = nom;
@@ -61,28 +55,10 @@ void Patient::assignerMedecin(const shared_ptr<Medecin>& m){
 // TODO: Implémenter la méthode afficher.
 // - Afficher les informations du patient, y compris le nom, l'âge, le numéro de salle, le type de soins et les antécédents médicaux.
 void Patient::afficher(ostream& out) const {
-    out << "Nom: " << getNom() << '\n';
-    out << "Âge: "; //comment pour l'age?
-    out << "Numéro de salle: " << getSalle() << '\n';
-    out << "Type de soins requis: ";
-    switch (getTypeSoins()) {
-    case TypeSoins::CHIRURGICAL:
-        out << "Chirurgical\n";
-        break;
-    case TypeSoins::CARDIOLOGIE:
-        out << "Cardiologie\n";
-        break;
-    case TypeSoins::PEDIATRIE:
-        out << "Pediatrie\n";
-        break;
-    out << "Antécédents médicaux:\n";
-    for (auto &a : getAntecedentsMedicaux()) out << " > " << a << '\n';
-    }
 }
 
 // TODO: Surcharger l'opérateur << pour afficher les informations du patient.
 ostream& operator<<(ostream& out, const Patient& p) {
     // TODO: Utiliser la méthode afficher pour afficher les informations du patient.
-    p.afficher(out);
     return out;
 }
