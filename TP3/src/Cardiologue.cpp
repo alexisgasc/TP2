@@ -1,7 +1,7 @@
 #include "Cardiologue.h"
 
-Cardiologue::Cardiologue(const string& nom, unsigned nbConference, unsigned nbPublications, unsigned int niveau) : 
-    Medecin(nom, new Specialite("Cardiologie", niveau)), nbConferences_(nbConference), nbPublications_(nbPublications), nbPatients_(0) {}
+Cardiologue::Cardiologue(const string& nom, unsigned nbPatients, unsigned nbConferences, unsigned int niveau) : 
+    Medecin(nom, new Specialite("Cardiologie", niveau)), nbConferences_(nbConferences), nbPublications_(0), nbPatients_(nbPatients) {}
 
 unsigned int Cardiologue::getNbPatients() const {
     return nbPatients_;
