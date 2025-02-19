@@ -15,6 +15,9 @@ public:
     // Vérifier que l'élément n'existe pas déjà avant de l'ajouter.
     Liste& operator+=(const T& obj) {
         // TODO: Implémenter la logique d'ajout d'un élément.
+        for(T o; listes_)
+            if(o == obj) return *this;
+        listes_.push_back(obj);
         return *this;
     }
 
@@ -22,6 +25,10 @@ public:
     // Vérifier que les éléments n'existent pas déjà avant de les ajouter.
     Liste& operator+=(const Liste<T>& liste) {
         // TODO: Implémenter la logique d'ajout d'une liste.
+        for(T elementParametre; liste)
+            for(T elementListe; listes_)
+                if(elementParametre == elementListe) return *this;
+        listes_.push_back(obj);
         return *this;
     }
 
@@ -29,6 +36,7 @@ public:
     // Utiliser la méthode chercher pour trouver l'élément à retirer.
     Liste& operator-=(const T& obj) {
         // TODO: Implémenter la logique de suppression d'un élément.
+        if(chercher(obj))
         return *this;
     }
 
@@ -61,13 +69,17 @@ public:
     // Retourner l'index de l'élément s'il est trouvé, sinon retourner -1.
     int chercher(const string& nom) const {
         // TODO: Implémenter la recherche par nom.
-       
+        for(size_t i = 0; i < liste_.size(); i++) 
+            if(liste_[i] == nom) return i;
+        return -1;
     }
 
     // TODO: Implémenter la méthode chercher pour trouver un élément par comparaison directe.
     // Retourner l'index de l'élément s'il est trouvé, sinon retourner -1.
     int chercher(const T& obj) const {
-        
+        for(size_t i = 0; i < liste_.size(); i++) 
+            if(liste_[i] == obj) return i;
+        return -1;
     }
 
     // TODO: Implémenter la méthode size pour retourner la taille de la liste.
