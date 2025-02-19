@@ -374,6 +374,7 @@ int main() {
         cout.rdbuf(oldCout);
 
         string output = oss.str();
+        cout << endl << output;
         string expectedOutput =
             "Nom: Dr. Brown\n"
             "Domaine: Cardiologie\n"
@@ -381,7 +382,7 @@ int main() {
             "Nombre de patients: 15\n"
             "Nombre de conférences: 7\n"
             "Nombre de publications: 3\n";
-
+        cout << endl  << endl << expectedOutput;
         assert(output == expectedOutput, "Erreur: le format de l'affichage du cardiologue est incorrect");
         });
 

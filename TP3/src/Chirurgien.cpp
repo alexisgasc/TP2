@@ -30,13 +30,11 @@ float Chirurgien::calculerSalaire() const {
     return salaireBase * specialite_->getNiveau() + (nbHeuresDeGarde_ * 20) + (nbOperations_ * 50); // TODO: Remplacer par le calcul du salaire
 }
 
-// TODO: Méthode afficher (Voir les tests)
-// vous devez réutiliser la methode afficher de medecin
-// Cette méthode doit afficher les informations suivantes :
-// - Appeler la méthode afficher() de la classe Medecin pour afficher les informations communes
-// - Ajouter les informations suivantes :
-//    - Heures de garde du chirurgien
-//    - Nombre d'opérations effectuées par le chirurgien
 ostream& Chirurgien::afficher(ostream& out) const {
+    Medecin::afficher(out);
+
+    out << "Heures de garde: " << nbHeuresDeGarde_ << "\n";
+    out << "Opérations: " << nbOperations_ << "\n";
+
     return out;
 }

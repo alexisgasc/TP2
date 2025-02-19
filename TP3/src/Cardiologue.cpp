@@ -38,10 +38,10 @@ void Cardiologue::opererCoeur(shared_ptr<Patient>& p) {
     nbPatients_ += 1;
 }
 
-// TODO: Implémenter la méthode afficher.
-// vous devez réutiliser la methode afficher de medecin
-// - Afficher les informations du cardiologue, y compris son nombre de patients, de conférences et de publications.
-// - Utiliser la méthode afficher de la classe parente (Medecin) pour afficher les informations de base.
 ostream& Cardiologue::afficher(ostream& out) const {
+    Medecin::afficher(out);
+    out << "Nombre de patients: " << nbPatients_ << "\n" ;
+    out << "Nombre de conférences: " << nbConferences_ << "\n";
+    out << "Nombre de publications: " << nbPublications_ << "\n";
     return out;
 }

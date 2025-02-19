@@ -66,9 +66,6 @@ float  Infirmier::calculerSalaire() const {
 	return  salaire;
 }
 
-// - Assigner le patient à l'infirmier. indice: utilise static_cast et nTypeSoin
-// - Mettre à jour le type de soins du patient. 
-// - mettre à jour nTypeSoin NB: il ne devra jamais depasser 3. Il prend uniquemnt les valeurs 0 1 et 2.
 void Infirmier::examinerPatient(shared_ptr<Patient>& p) {
     ajouterHeuresTravaillees(5);
     *this += p->getSalle();
@@ -86,7 +83,7 @@ ostream &Infirmier::afficher(ostream &out) const
     out << "Heures travaillees: " << heuresTravaillees_ << " heures" << endl;
     out << "Liste des chambres: ";
     if (listeChambre_.empty()) {
-        out << "Aucune chambre assignee.";
+        out << "Aucune chambre assignee.\n";
     } else {
         for (const auto& chambre : listeChambre_) {
             out << chambre << " ";

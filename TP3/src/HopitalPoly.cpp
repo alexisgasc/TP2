@@ -109,8 +109,7 @@ void HopitalPoly::traiterPatients() {
     }
 }
 
-// TODO: Implémenter la méthode chercherEmploye.
-// - Rechercher un employé par objet dans la liste des employés.
+
 bool HopitalPoly::chercherEmploye(const shared_ptr<Employe>& employe) const {
     for (size_t i = 0; i < employes_.size(); i++)
         if (employes_[i] == employe)
@@ -118,8 +117,7 @@ bool HopitalPoly::chercherEmploye(const shared_ptr<Employe>& employe) const {
     return false;
 }
 
-// TODO: Implémenter la méthode chercherEmploye.
-// - Rechercher un employé par nom dans la liste des employés.
+
 bool HopitalPoly::chercherEmploye(const string& nomEmploye) const {
     for (size_t i = 0; i < employes_.size(); i++)
         if (employes_[i]->getNom() == nomEmploye)
@@ -127,8 +125,6 @@ bool HopitalPoly::chercherEmploye(const string& nomEmploye) const {
     return false;
 }
 
-// TODO: Implémenter la méthode afficherEmploye.
-// - Afficher les informations de tous les employés de l'hôpital.
 void HopitalPoly::afficherEmploye(ostream &out) const {
     out << "Employés: \n";
     for(size_t i = 0; i < employes_.size(); i++) {
@@ -136,15 +132,14 @@ void HopitalPoly::afficherEmploye(ostream &out) const {
     }
 }
 
-// TODO: Implémenter la méthode afficher.
-// - Afficher les informations de l'hôpital, y compris la liste des employés.
+
 ostream& HopitalPoly::afficher(ostream &out) const {
-    out << "Hôpital: \n" << nom_ << endl;
+    out << "Hôpital: " << nom_ << endl;
     afficherEmploye(out);
     return out;
 }
 
-// TODO: Surcharger l'opérateur << pour afficher les informations de l'hôpital.
+
 ostream &operator<<(ostream &o, const HopitalPoly &h) {
     return h.afficher(o);
 }

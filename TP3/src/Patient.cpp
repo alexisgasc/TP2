@@ -52,19 +52,31 @@ void Patient::assignerMedecin(const shared_ptr<Medecin>& m){
     medecin_ = m;
 }
 
-// TODO: Implémenter la méthode afficher.
-// - Afficher les informations du patient, y compris le nom, l'âge, le numéro de salle, le type de soins et les antécédents médicaux.
+
 void Patient::afficher(ostream& out) const {
     out << "Nom: " << getNom() << "\n";
     out << "Âge: " << this->age_ << " ans\n";
     out << "Numéro de salle: " << getSalle() << '\n';
-    out << "Type de soins requis: " << getTypeSoins() << '\n';
-    out << "Antécédents médicaux:";
-    for(auto a: antecedentsMedicaux_) out << a << '\n';
+    out << "Type de soins requis: ";
+    switch (getTypeSoins()) {
+        case TypeSoins::CHIRURGICAL:
+            out << "Chirurgical\n";
+            break;
+        case TypeSoins::CARDIOLOGIE:
+            out << "Cardiologie\n";
+            break;
+        case TypeSoins::PEDIATRIE:
+            out << "Pediatrie\n";
+            break;
+        case TypeSoins::PAS_BESOIN:
+            out << "PAS_BESOIN\n";
+            break;
+    }
+    out << "Antécédents médicaux:\n";
+    for(auto a: antecedentsMedicaux_) out << " > " << a << '\n';
 }
 
-// TODO: Surcharger l'opérateur << pour afficher les informations du patient.
 ostream& operator<<(ostream& out, const Patient& p) {
-    // TODO: Utiliser la méthode afficher pour afficher les informations du patient.
+    p.afficher(out);
     return out;
 }
