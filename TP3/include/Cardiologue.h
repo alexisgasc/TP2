@@ -4,7 +4,7 @@
 class Cardiologue: public Medecin
 {
 public:
-    Cardiologue(const string& nom , unsigned nbConference, unsigned nbPublications, unsigned int niveau = 0);
+    Cardiologue(const string& nom , unsigned nbPatients, unsigned nbConferences, unsigned int niveau = 0);
     unsigned int getNbPatients() const;
     void setNbPatients(unsigned int nbPatients);
     unsigned int getNbConferences() const;
